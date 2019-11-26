@@ -28,7 +28,7 @@ public class Calle {
     public int totalCoches(){
         int result=0;
         for (int i = 0; i < vias.size(); i++) {
-            result = vias.get(i)
+            result += vias.get(i)
         }
         return result;
     }
