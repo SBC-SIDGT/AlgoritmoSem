@@ -1,15 +1,17 @@
-public class Semaforo {
-    int Modo; //Color del semáforo
 
-    public Semaforo(int modo) {
-        Modo = modo;
+
+public class Semaforo {
+    int modo; //Color del semaforo
+    
+    public Semaforo(int mod) {
+        modo = mod;
     }
 
-    public void setModo(int modo) {
-        Modo = modo;
+    public void setModo(int mod) {
+        modo = mod;
     }
 
     public int getModo() {
-        return Modo;
+        return modo;
     }
 }
