@@ -1,4 +1,4 @@
-public class SemC {
+public class SemC extends Semaforo{
     int MaxR;
 
 	public int getMaxR() {
@@ -6,8 +6,8 @@ public class SemC {
 	}
 
 	public void setMaxR(int maxR) {
+	    super();
 		MaxR = maxR;
 	}
-    
 
 }
