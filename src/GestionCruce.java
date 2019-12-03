@@ -44,24 +44,32 @@ public void setMaxA(int maxA) {
 	this.maxA = maxA;
 }
 
-public void CambioLuz(){
+public static void esperar(int segundos){
+		try {
+			Thread.sleep(segundos * 1000);
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
+
+	public void CambioLuz(){
 	if(c11.SC.getModo() == 1) {
 		c11.SC.setModo(2);
 		c12.SC.setModo(2);
-		Thread.sleep(maxA);
+		esperar(maxA);
 		c11.SC.setModo(3);
 		c12.SC.setModo(3);
-		Thread.sleep(maxR);
+		esperar(maxR);
 		c21.SC.setModo(0);
 		c22.SC.setModo(0);
 	}
 	else {
 		c21.SC.setModo(2);
 		c22.SC.setModo(2);
-		Thread.sleep(maxA);
+		esperar(maxA);
 		c21.SC.setModo(3);
 		c22.SC.setModo(3);
-		Thread.sleep(maxR);
+		esperar(maxR);
 		c11.SC.setModo(0);
 		c12.SC.setModo(0);
 	}
