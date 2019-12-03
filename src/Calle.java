@@ -33,6 +33,12 @@ public class Calle {
         }
         return result;
     }
+    public void reset(){
+        vias.clear();
+    }
+    public void add(int x){
+        vias.add(x);
+    }
     public int Via(int x){
         return vias.get(x);
     }

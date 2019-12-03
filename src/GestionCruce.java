@@ -1,7 +1,10 @@
+import java.net.HttpURLConnection;
+import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class GestionCruce {
+	ConexionExterna conexionExt = new ConexionExterna();
  Calle c11;
  Calle c12;
  Calle c21;
@@ -79,7 +82,7 @@ public void LuzGiro(int pos){
 	}
 }
 
-public void Algoritmo(){
+	public void Algoritmo(){
 	Timer timer = new Timer();
 	TimerTask task = new TimerTask() {
 		@Override
@@ -90,11 +93,33 @@ public void Algoritmo(){
 					if(c21.totalCoches()>16)
 						CambioLuz();
 
+
 			}
 		}
 	};
 	// Empezamos al instante y luego lanzamos la tarea cada 1000ms, mirar cada cuanto se hace una lectura para coordinar el timer
 	timer.schedule(task,0, 1000);
+}
+	public void  Calles(){
+	ArrayList<int> street = new ArrayList<int>();
+	Timer timer = new Timer();
+	TimerTask task = new TimerTask() {
+			@Override
+			public void run()
+			{
+				HttpURLConnection con = conexionExt.abrirConexion();
+				street=conexionExt.getDatos(con);
+				int vias = street.size()/4;
+				int carriles = street.size()/8;
+				c11.setVias(street.subList(0, carriles+1);
+				c12.setVias(street.subList(vias, vias+carriles+1);
+				c21.setVias(street.subList(vias*2, vias*2+carriles+1);
+				c22.setVias(street.subList(vias*3, vias*3+carriles+1);
+			}
+		};
+		// Empezamos al instante y luego lanzamos la tarea cada 1000ms, mirar cada cuanto se hace una lectura para coordinar el timer
+		timer.schedule(task,0, 1000);
+
 }
 public void Timer() {
 	Timer timer = new Timer();
@@ -102,6 +127,7 @@ public void Timer() {
 		@Override
 		public void run()
 		{
+
 			if (c11.SC.getModo()==1)
 				rojo1++;
 			else
