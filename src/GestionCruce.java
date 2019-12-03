@@ -101,20 +101,20 @@ public void LuzGiro(int pos){
 	timer.schedule(task,0, 1000);
 }
 	public void  Calles(){
-	ArrayList<int> street = new ArrayList<int>();
 	Timer timer = new Timer();
 	TimerTask task = new TimerTask() {
 			@Override
 			public void run()
 			{
+				ArrayList<Integer> street = new ArrayList<Integer>();
 				HttpURLConnection con = conexionExt.abrirConexion();
 				street=conexionExt.getDatos(con);
-				int vias = street.size()/4;
-				int carriles = street.size()/8;
-				c11.setVias(street.subList(0, carriles+1);
-				c12.setVias(street.subList(vias, vias+carriles+1);
-				c21.setVias(street.subList(vias*2, vias*2+carriles+1);
-				c22.setVias(street.subList(vias*3, vias*3+carriles+1);
+				int vias = (street.size())/4;
+				int carriles = (street.size())/8;
+				c11.setVias(street.subList(0, carriles+1));
+				c12.setVias(street.subList(vias, vias+carriles+1));
+				c21.setVias(street.subList(vias*2, vias*2+carriles+1));
+				c22.setVias(street.subList(vias*3, vias*3+carriles+1));
 			}
 		};
 		// Empezamos al instante y luego lanzamos la tarea cada 1000ms, mirar cada cuanto se hace una lectura para coordinar el timer
