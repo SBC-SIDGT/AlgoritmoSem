@@ -57,21 +57,21 @@ public static void esperar(int segundos){
 		c11.SC.setModo(2);
 		c12.SC.setModo(2);
 		esperar(maxA);
-		c11.SC.setModo(3);
-		c12.SC.setModo(3);
+		c11.SC.setModo(4);
+		c12.SC.setModo(4);
 		esperar(maxR);
-		c21.SC.setModo(0);
-		c22.SC.setModo(0);
+		c21.SC.setModo(1);
+		c22.SC.setModo(1);
 	}
 	else {
 		c21.SC.setModo(2);
 		c22.SC.setModo(2);
 		esperar(maxA);
-		c21.SC.setModo(3);
-		c22.SC.setModo(3);
+		c21.SC.setModo(4);
+		c22.SC.setModo(4);
 		esperar(maxR);
-		c11.SC.setModo(0);
-		c12.SC.setModo(0);
+		c11.SC.setModo(1);
+		c12.SC.setModo(1);
 	}
 	rojo1=0;
 	rojo2=0;
@@ -114,15 +114,10 @@ public void LuzGiro(int pos){
 			@Override
 			public void run()
 			{
-				ArrayList<Integer> street = new ArrayList<Integer>();
+				ArrayList<int> street = new ArrayList<Integer>();
 				HttpURLConnection con = conexionExt.abrirConexion();
 				street=conexionExt.getDatos(con);
-				int vias = (street.size())/4;
-				int carriles = (street.size())/8;
-				c11.setVias(street.subList(0, carriles+1));
-				c12.setVias(street.subList(vias, vias+carriles+1));
-				c21.setVias(street.subList(vias*2, vias*2+carriles+1));
-				c22.setVias(street.subList(vias*3, vias*3+carriles+1));
+				c11.setVias(street);
 			}
 		};
 		// Empezamos al instante y luego lanzamos la tarea cada 1000ms, mirar cada cuanto se hace una lectura para coordinar el timer
