@@ -6,8 +6,11 @@ public class Main {
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		ConexionExterna conexionExt = new ConexionExterna();
-		HttpURLConnection con = conexionExt.abrirConexion();
-		conexionExt.getDatos(con);
+		conexionExt.abrirConexion();
+		conexionExt.postDatos(6);
+		conexionExt.getDatos();
+		
+		
 	}
 
 }
