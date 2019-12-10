@@ -12,7 +12,7 @@ public class SemC extends Semaforo {
         maxV = maxVerde;
     }
 
-    public SemC(short modo) {
+    public SemC(int modo) {
         super(modo);
     }
 
