@@ -1,18 +1,19 @@
+import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class GestionCruce {
- Calle c11;
- Calle c12;
- Calle c21;
- Calle c22;
- int maxA; //Tiempo en amarillo
- int maxR; //Tiempo en rojo hasta que el contrario se pone en verde
-	int rojo1=0; //tiempo de calle 1 en rojo
-	int rojo2=0; //tiempo de calle 2 en rojo
-	ConexionExterna conexionExt = new ConexionExterna();
+ private Calle c11;
+	private Calle c12;
+	private Calle c21;
+	private Calle c22;
+	private int maxA; //Tiempo en amarillo
+	private int maxR; //Tiempo en rojo hasta que el contrario se pone en verde
+	private int rojo1=0; //tiempo de calle 1 en rojo
+	private int rojo2=0; //tiempo de calle 2 en rojo
+	private ConexionExterna conexionExt = new ConexionExterna();
 public Calle getC11() {
 	return c11;
 }
@@ -126,7 +127,11 @@ public void LuzGiro(int pos){
 				@Override
 				public void run() {
 					ArrayList<Integer> street = new ArrayList<Integer>();
-					street = conexionExt.getDatos();
+					try {
+						street = conexionExt.getDatos();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
 					c11.setVias(street);
 				}
 			};

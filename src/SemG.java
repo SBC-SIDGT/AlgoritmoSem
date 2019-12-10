@@ -1,5 +1,5 @@
 public class SemG extends Semaforo {
-    int MaxR;
+    private int MaxR;
     
     public SemG(int modo) {
     	super(modo);

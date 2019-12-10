@@ -1,8 +1,8 @@
 import java.util.Timer;
 
 public class SemC extends Semaforo {
-    int maxR;
-    int maxV;
+    private int maxR;
+    private int maxV;
 
     public int getMaxV() {
         return maxV;
