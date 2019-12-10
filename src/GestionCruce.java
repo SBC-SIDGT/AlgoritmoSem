@@ -90,55 +90,62 @@ public void LuzGiro(int pos){
 	}
 }
 
-	public void Algoritmo(){
-	Timer timer = new Timer();
-	TimerTask task = new TimerTask() {
-		@Override
-		public void run()
-		{
-			switch(c11.SC.getModo()){
-				case 1:
-					if(c21.totalCoches()>16)
-						CambioLuz();
-
-
-			}
-		}
-	};
-	// Empezamos al instante y luego lanzamos la tarea cada 1000ms, mirar cada cuanto se hace una lectura para coordinar el timer
-	timer.schedule(task,0, 1000);
-}
-	public void  Calles(){
-	Timer timer = new Timer();
-	TimerTask task = new TimerTask() {
+	public void Algoritmo() {
+		Timer timer = new Timer();
+		TimerTask task = new TimerTask() {
 			@Override
-			public void run()
-			{
-				ArrayList<int> street = new ArrayList<Integer>();
-				HttpURLConnection con = conexionExt.abrirConexion();
-				street=conexionExt.getDatos(con);
-				c11.setVias(street);
+			public void run() {
+				switch (c11.SC.getModo()) {
+					case 1:
+						if ((c21.totalCoches() + c22.totalCoches()) > 32 || c21.totalCoches() > 16 || c22.totalCoches() > 16)
+							CambioLuz();
+						else if (c21.Via(0) > 4)
+							LuzGiro(2);
+						break;
+					case 4:
+						if ((c11.totalCoches() + c22.totalCoches()) > 32 || c11.totalCoches() > 16 || c12.totalCoches() > 16)
+							CambioLuz();
+						else if (c11.Via(0) > 4 || c12.Via(0) > 4 || (c12.Via(0) + c11.Via(0)) > 8) {
+							LuzGiro(1);
+							break;
+						}
+				}
 			}
 		};
-		// Empezamos al instante y luego lanzamos la tarea cada 1000ms, mirar cada cuanto se hace una lectura para coordinar el timer
-		timer.schedule(task,0, 1000);
+			// Empezamos al instante y luego lanzamos la tarea cada 1000ms, mirar cada cuanto se hace una lectura para coordinar el timer
+				timer.schedule(task,0,1000);
+	}
 
-}
-public void Timer() {
-	Timer timer = new Timer();
-	TimerTask task = new TimerTask() {
-		@Override
-		public void run()
-		{
+		public void Calles() {
+			Timer timer = new Timer();
+			TimerTask task = new TimerTask() {
+				@Override
+				public void run() {
+					ArrayList<int> street = new ArrayList<Integer>();
+					HttpURLConnection con = conexionExt.abrirConexion();
+					street = conexionExt.getDatos(con);
+					c11.setVias(street);
+				}
+			};
+			// Empezamos al instante y luego lanzamos la tarea cada 1000ms, mirar cada cuanto se hace una lectura para coordinar el timer
+			timer.schedule(task, 0, 1000);
 
-			if (c11.SC.getModo()==1)
-				rojo1++;
-			else
-				rojo2++;
 		}
-	};
-	// Empezamos al instante y luego lanzamos la tarea cada 1000ms, mirar cada cuanto se hace una lectura para coordinar el timer
-	timer.schedule(task,0, 1000);
 
-}
-}
+		public void Timer() {
+			Timer timer = new Timer();
+			TimerTask task = new TimerTask() {
+				@Override
+				public void run() {
+
+					if (c11.SC.getModo() == 1)
+						rojo1++;
+					else
+						rojo2++;
+				}
+			};
+			// Empezamos al instante y luego lanzamos la tarea cada 1000ms, mirar cada cuanto se hace una lectura para coordinar el timer
+			timer.schedule(task, 0, 1000);
+
+		}
+	}
