@@ -8,7 +8,7 @@ public class Semaforo {
         modo = mod;
     }
 
-    public void setModo(int mod) {
+    public void setModo(short mod) {
         modo = mod;
     }
 
