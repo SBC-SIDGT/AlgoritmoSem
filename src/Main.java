@@ -9,8 +9,5 @@ public class Main {
 		conexionExt.abrirConexion();
 		conexionExt.postDatos(6);
 		conexionExt.getDatos();
-		
-		
 	}
-
 }

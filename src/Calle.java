@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Calle {
-    ArrayList<Integer> vias = new ArrayList<Integer>; //Almacena el número de vehículos en cada via de la calle
+    ArrayList<Integer> vias = new ArrayList<Integer>(); //Almacena el número de vehículos en cada via de la calle
     int Pos;
     SemC SC;
     SemG SG;
@@ -10,11 +10,11 @@ public class Calle {
         Pos = pos;
     }
 
-    public ArrayList<int> getVias() {
+    public ArrayList<Integer> getVias() {
         return vias;
     }
 
-    public void setVias(ArrayList<int> vias) {
+    public void setVias(ArrayList<Integer> vias) {
         this.vias = vias;
     }
 
@@ -29,7 +29,7 @@ public class Calle {
     public int totalCoches(){
         int result=0;
         for (int i = 0; i < vias.size(); i++) {
-            result += vias.get(i)
+            result += vias.get(i);
         }
         return result;
     }
