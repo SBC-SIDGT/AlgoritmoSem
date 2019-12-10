@@ -8,6 +8,8 @@ public class Calle {
     public Calle(ArrayList<Integer> vias, int pos) {
         this.vias = vias;
         Pos = pos;
+        SC= new SemC(2);
+        SG= new SemG(2);
     }
 
     public ArrayList<Integer> getVias() {

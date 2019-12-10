@@ -4,7 +4,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class GestionCruce {
-	ConexionExterna conexionExt = new ConexionExterna();
  Calle c11;
  Calle c12;
  Calle c21;
@@ -13,6 +12,7 @@ public class GestionCruce {
  int maxR; //Tiempo en rojo hasta que el contrario se pone en verde
 	int rojo1=0; //tiempo de calle 1 en rojo
 	int rojo2=0; //tiempo de calle 2 en rojo
+	ConexionExterna conexionExt = new ConexionExterna();
 public Calle getC11() {
 	return c11;
 }
@@ -55,9 +55,11 @@ public static void esperar(int segundos){
 	public void CambioLuz(){
 	if(c11.SC.getModo() == 1) {
 		c11.SC.setModo(2);
+		conexionExt.postDatos(2);
 		c12.SC.setModo(2);
 		esperar(maxA);
 		c11.SC.setModo(4);
+		conexionExt.postDatos(4);
 		c12.SC.setModo(4);
 		esperar(maxR);
 		c21.SC.setModo(1);
@@ -71,6 +73,7 @@ public static void esperar(int segundos){
 		c22.SC.setModo(4);
 		esperar(maxR);
 		c11.SC.setModo(1);
+		conexionExt.postDatos(1);
 		c12.SC.setModo(1);
 	}
 	rojo1=0;
@@ -121,9 +124,7 @@ public void LuzGiro(int pos){
 			TimerTask task = new TimerTask() {
 				@Override
 				public void run() {
-					ArrayList<int> street = new ArrayList<Integer>();
-					HttpURLConnection con = conexionExt.abrirConexion();
-					street = conexionExt.getDatos(con);
+					ArrayList<Integer> street = new ArrayList<Integer>();
 					c11.setVias(street);
 				}
 			};
