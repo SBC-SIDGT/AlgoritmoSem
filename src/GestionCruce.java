@@ -84,6 +84,7 @@ public void LuzGiro(int pos){
 	switch(pos){
 		case 1:
 			c11.SG.setModo(2);
+			conexionExt.postDatos(2);
 			c12.SG.setModo(2);
 			break;
 		case 2:
@@ -125,6 +126,7 @@ public void LuzGiro(int pos){
 				@Override
 				public void run() {
 					ArrayList<Integer> street = new ArrayList<Integer>();
+					street = conexionExt.getDatos();
 					c11.setVias(street);
 				}
 			};
