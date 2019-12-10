@@ -1,7 +1,7 @@
 public class SemG extends Semaforo {
     int MaxR;
     
-    public SemG(int modo) {
+    public SemG(short modo) {
     	super(modo);
     }
 

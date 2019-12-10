@@ -4,15 +4,6 @@ public class SemC extends Semaforo {
     int maxR;
     int maxV;
 
-
-    public Timer getTimer() {
-        return timer;
-    }
-
-    public void setTimer(Timer timer) {
-        this.timer = timer;
-    }
-
     public int getMaxV() {
         return maxV;
     }
@@ -21,7 +12,7 @@ public class SemC extends Semaforo {
         maxV = maxVerde;
     }
 
-    public SemC(int modo) {
+    public SemC(short modo) {
         super(modo);
     }
 
