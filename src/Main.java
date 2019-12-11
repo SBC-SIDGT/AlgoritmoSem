@@ -7,9 +7,10 @@ public class Main {
 		// TODO Auto-generated method stub
 		ConexionExterna conexionExt = new ConexionExterna();
 		conexionExt.abrirConexion();
+		conexionExt.postDatos(2, 4);
 		//gestionCruce()
-		GestionCruce gc = new GestionCruce ();
-		gc.CambioLuz();
+//		GestionCruce gc = new GestionCruce ();
+//		gc.CambioLuz();
 //		conexionExt.postDatos(6);
 //		conexionExt.getDatos();
 	}

@@ -58,9 +58,10 @@ public class ConexionExterna {
 	/*
 	 * Metodo que devuelve datos a la API. Env�a un JSON (clave: signal, value: x)
 	 */
-	public boolean postDatos(int n) {
+	public boolean postDatos(int modo, int posicion) {
 		boolean resul = false;
-		final String POST_PARAMS = "{\n" +"\"signal\": "+n+"\n}";
+		final String POST_PARAMS = "{\n" + "\"modo\": "+modo+",\r\n" +
+		        "    \"posicion\": "+posicion+ "\n}";
 		try {
 			HttpURLConnection con = (HttpURLConnection) this.url.openConnection();
 			con.setRequestMethod("POST");
