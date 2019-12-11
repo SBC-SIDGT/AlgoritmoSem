@@ -181,7 +181,7 @@ public class GestionCruce {
 		for(int j=0; j<3; j++) {
 			aux.clear();
 			for (int i = 0; i < street.size(); i++) {
-				aux.add(Math.random()*);
+				aux.add(Math.random()*8);
 			}
 			switch(j){
 				case 0:
