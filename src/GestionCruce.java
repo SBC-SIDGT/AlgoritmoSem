@@ -45,6 +45,15 @@ public void setMaxA(int maxA) {
 	this.maxA = maxA;
 }
 
+public GestionCruce(){
+	c11 = new Calle(1);
+	c12 = new Calle(2);
+	c21 = new Calle(3);
+	c22 = new Calle(4);
+	Algoritmo();
+	Timer();
+}
+
 public static void esperar(int segundos){
 		try {
 			Thread.sleep(segundos * 1000);
@@ -113,6 +122,7 @@ public void LuzGiro(int pos){
 		TimerTask task = new TimerTask() {
 			@Override
 			public void run() {
+				Calles();
 				switch (c11.SC.getModo()) {
 					case 1:
 						if (c21.Via(0) > 4 || c22.Via(0) > 4 || (c22.Via(0) + c21.Via(0)) > 8)
@@ -142,10 +152,6 @@ public void LuzGiro(int pos){
 	}
 
 		public void Calles() {
-			Timer timer = new Timer();
-			TimerTask task = new TimerTask() {
-				@Override
-				public void run() {
 					ArrayList<Integer> street = new ArrayList<Integer>();
 					try {
 						street = conexionExt.getDatos();
@@ -153,11 +159,6 @@ public void LuzGiro(int pos){
 						e.printStackTrace();
 					}
 					c11.setVias(street);
-				}
-			};
-			// Empezamos al instante y luego lanzamos la tarea cada 1000ms, mirar cada cuanto se hace una lectura para coordinar el timer
-			timer.schedule(task, 0, 1000);
-
 		}
 
 		public void Timer() {

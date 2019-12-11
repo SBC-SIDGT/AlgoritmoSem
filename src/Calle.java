@@ -5,7 +5,7 @@ public class Calle {
     private int Pos;
     protected SemC SC;
     protected SemG SG;
-    public Calle(ArrayList<Integer> vias, int pos) {
+    public Calle(int pos) {
         this.vias = vias;
         Pos = pos;
         SC= new SemC(2);
