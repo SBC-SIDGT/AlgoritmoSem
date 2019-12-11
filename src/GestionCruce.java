@@ -50,8 +50,8 @@ public GestionCruce(){
 	c12 = new Calle(2);
 	c21 = new Calle(3);
 	c22 = new Calle(4);
-	Algoritmo();
 	Timer();
+	Algoritmo();
 }
 
 public static void esperar(int segundos){
