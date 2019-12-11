@@ -145,7 +145,7 @@ public class GestionCruce {
 				case 1:
 					if (rojo2>120)
 						CambioLuz();
-					else if((c21.totalCoches() + c22.totalCoches()) > 32 || c21.totalCoches() > 16 || c22.totalCoches() > 16)
+					else if((c21.totalCoches() + c22.totalCoches()) > 4*(c21.numVias()+c22.numVias()) || c21.totalCoches() > 4*(c21.numVias()) || c22.totalCoches() > 4*(c22.numVias()))
 						CambioLuz();
 					if (c21.Via(0) > 4 || c22.Via(0) > 4 || (c22.Via(0) + c21.Via(0)) > 8)
 						LuzGiro(2);
@@ -155,12 +155,12 @@ public class GestionCruce {
 					case 4:
 					if (rojo1>120)
 						CambioLuz();
-					else if(c11.Via(0) > 4 || c12.Via(0) > 4 || (c12.Via(0) + c11.Via(0)) > 8)
+					else if ((c11.totalCoches() + c22.totalCoches()) > 4*(c11.numVias()+c12.numVias()) || c11.totalCoches() > 4*(c11.numVias()) || c12.totalCoches() > 4*(c12.numVias()))
+							CambioLuz();
+					if(c11.Via(0) > 4 || c12.Via(0) > 4 || (c12.Via(0) + c11.Via(0)) > 8)
 						LuzGiro(1);
 					else if (c11.Via(0) < 4 || c12.Via(0) < 4 || (c12.Via(0) + c11.Via(0)) < 8)
 						LuzGiroOff(1);
-					if ((c11.totalCoches() + c22.totalCoches()) > 32 || c11.totalCoches() > 16 || c12.totalCoches() > 16)
-						CambioLuz();
 					break;
 				}
 			}
@@ -171,12 +171,30 @@ public class GestionCruce {
 
 	public void Calles() {
 		ArrayList<Integer> street = new ArrayList<Integer>();
+		ArrayList<Integer> aux = new ArrayList<Integer>();
 		try {
 			street = conexionExt.getDatos();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		c11.setVias(street);
+		for(int j=0; j<3; j++) {
+			aux.clear();
+			for (int i = 0; i < street.size(); i++) {
+				aux.add(Math.random()*);
+			}
+			switch(j){
+				case 0:
+					c12.setVias(aux);
+					break;
+				case 1:
+					c21.setVias(aux);
+					break;
+				case 2:
+					c22.setVias(aux);
+					break;
+			}
+		}
 	}
 
 	public void Timer() {

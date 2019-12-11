@@ -15,7 +15,9 @@ public class Calle {
     public ArrayList<Integer> getVias() {
         return vias;
     }
-
+    public int numVias(){
+        return vias.size();
+    }
     public void setVias(ArrayList<Integer> vias) {
         this.vias = vias;
     }
