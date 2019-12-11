@@ -1,5 +1,6 @@
+package principal;
+
 import java.io.IOException;
-import java.net.HttpURLConnection;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
