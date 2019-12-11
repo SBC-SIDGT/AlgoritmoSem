@@ -143,20 +143,20 @@ public class GestionCruce {
 				Calles();
 				switch (c11.SC.getModo()) {
 				case 1:
-					if (c21.Via(0) > 4 || c22.Via(0) > 4 || (c22.Via(0) + c21.Via(0)) > 8)
-						LuzGiro(2);
-					else if(c21.Via(0) < 4 || c22.Via(0) < 4 || (c22.Via(0) + c21.Via(0)) < 8)
-						LuzGiroOff(2);
 					if (rojo2>120)
 						CambioLuz();
 					else if((c21.totalCoches() + c22.totalCoches()) > 32 || c21.totalCoches() > 16 || c22.totalCoches() > 16)
 						CambioLuz();
+					if (c21.Via(0) > 4 || c22.Via(0) > 4 || (c22.Via(0) + c21.Via(0)) > 8)
+						LuzGiro(2);
+					else if(c21.Via(0) < 4 || c22.Via(0) < 4 || (c22.Via(0) + c21.Via(0)) < 8)
+						LuzGiroOff(2);
 					break;
-				case 4:
+					case 4:
 					if (rojo1>120)
-						LuzGiro(1);
-					else if(c11.Via(0) > 4 || c12.Via(0) > 4 || (c12.Via(0) + c11.Via(0)) > 8)
 						CambioLuz();
+					else if(c11.Via(0) > 4 || c12.Via(0) > 4 || (c12.Via(0) + c11.Via(0)) > 8)
+						LuzGiro(1);
 					else if (c11.Via(0) < 4 || c12.Via(0) < 4 || (c12.Via(0) + c11.Via(0)) < 8)
 						LuzGiroOff(1);
 					if ((c11.totalCoches() + c22.totalCoches()) > 32 || c11.totalCoches() > 16 || c12.totalCoches() > 16)
