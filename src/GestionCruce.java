@@ -52,7 +52,7 @@ public GestionCruce(){
 	c22 = new Calle(4);
 	Calles();
 	Timer();
-	Algoritmo();
+	Iniciar();
 }
 
 public static void esperar(int segundos){
@@ -66,11 +66,11 @@ public static void esperar(int segundos){
 	public void CambioLuz(){
 	if(c11.SC.getModo() == 1) {
 		c11.SC.setModo(2);
-		conexionExt.postDatos(2);
+		conexionExt.postDatos(2, 1);
 		c12.SC.setModo(2);
 		esperar(maxA);
 		c11.SC.setModo(4);
-		conexionExt.postDatos(4);
+		conexionExt.postDatos(4, 1);
 		c12.SC.setModo(4);
 		esperar(maxR);
 		c21.SC.setModo(1);
@@ -84,7 +84,7 @@ public static void esperar(int segundos){
 		c22.SC.setModo(4);
 		esperar(maxR);
 		c11.SC.setModo(1);
-		conexionExt.postDatos(1);
+		conexionExt.postDatos(1, 1);
 		c12.SC.setModo(1);
 	}
 	rojo1=0;
@@ -95,7 +95,7 @@ public void LuzGiro(int pos){
 	switch(pos){
 		case 1:
 			c11.SG.setModo(2);
-			conexionExt.postDatos(2);
+			conexionExt.postDatos(2, 2);
 			c12.SG.setModo(2);
 			break;
 		case 2:
@@ -108,7 +108,7 @@ public void LuzGiro(int pos){
 		switch(pos){
 			case 1:
 				c11.SG.setModo(4);
-				conexionExt.postDatos(4);
+				conexionExt.postDatos(4, 2);
 				c12.SG.setModo(4);
 				break;
 			case 2:
@@ -121,17 +121,19 @@ public void LuzGiro(int pos){
 	public void Iniciar(){
 		if((c21.totalCoches()+c22.totalCoches())>(c11.totalCoches()+c11.totalCoches())) {
 			c11.SC.setModo(4);
-			conexionExt.postDatos(4);
+			conexionExt.postDatos(4, 1);
 			c12.SC.setModo(4);
 			c21.SC.setModo(1);
 			c22.SC.setModo(1);
 		}
-		else
+		else {
 			c11.SC.setModo(1);
-			conexionExt.postDatos(1);
+			conexionExt.postDatos(1, 1);
 			c12.SC.setModo(1);
 			c21.SC.setModo(4);
 			c22.SC.setModo(4);
+		}
+		Algoritmo();
 	}
 	public void Algoritmo() {
 		Timer timer = new Timer();
