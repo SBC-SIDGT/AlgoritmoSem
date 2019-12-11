@@ -50,6 +50,7 @@ public GestionCruce(){
 	c12 = new Calle(2);
 	c21 = new Calle(3);
 	c22 = new Calle(4);
+	Calles();
 	Timer();
 	Algoritmo();
 }
@@ -117,6 +118,21 @@ public void LuzGiro(int pos){
 		}
 	}
 
+	public void Iniciar(){
+		if((c21.totalCoches()+c22.totalCoches())>(c11.totalCoches()+c11.totalCoches())) {
+			c11.SC.setModo(4);
+			conexionExt.postDatos(4);
+			c12.SC.setModo(4);
+			c21.SC.setModo(1);
+			c22.SC.setModo(1);
+		}
+		else
+			c11.SC.setModo(1);
+			conexionExt.postDatos(1);
+			c12.SC.setModo(1);
+			c21.SC.setModo(4);
+			c22.SC.setModo(4);
+	}
 	public void Algoritmo() {
 		Timer timer = new Timer();
 		TimerTask task = new TimerTask() {
