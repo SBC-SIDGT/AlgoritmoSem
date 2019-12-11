@@ -27,20 +27,16 @@ public class ConexionExterna {
 			this.url = new URL ("https://my-json-server.typicode.com/typicode/demo/posts");
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
-			System.out.println("URL no válida");
+			System.out.println("URL no valida");
 			e.printStackTrace();
 		}
 	}
-
-	
-	
-	
 	
 	public void abrirConexion()throws IOException {
 		setUrl();
 	}
 	/*
-	 * Método que obtiene los datos de la API. Recibe JSON, pero devuelve un ArrayList de enteros
+	 * Metodo que obtiene los datos de la API. Recibe JSON, pero devuelve un ArrayList de enteros
 	 */
 	public ArrayList<Integer> getDatos () throws IOException {
 		ArrayList<Integer> resul = new ArrayList<Integer>();
@@ -60,7 +56,7 @@ public class ConexionExterna {
 		return resul;
 	}
 	/*
-	 * Método que devuelve datos a la API. Envía un JSON (clave: signal, value: x)
+	 * Metodo que devuelve datos a la API. Envï¿½a un JSON (clave: signal, value: x)
 	 */
 	public boolean postDatos(int n) {
 		boolean resul = false;
