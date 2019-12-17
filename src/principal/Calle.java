@@ -7,6 +7,7 @@ public class Calle {
     private int Pos;
     protected SemC SC;
     protected SemG SG;
+
     public Calle(int pos) {
         this.vias = vias;
         Pos = pos;

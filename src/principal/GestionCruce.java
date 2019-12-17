@@ -51,9 +51,9 @@ public class GestionCruce {
 		c12 = new Calle(2);
 		c21 = new Calle(3);
 		c22 = new Calle(4);
-		Calles();
-		Timer();
-		Iniciar();
+		calles();
+		timer();
+		iniciar();
 	}
 
 	public static void esperar(int segundos){
@@ -64,7 +64,7 @@ public class GestionCruce {
 		}
 	}
 
-	public void CambioLuz(){
+	public void cambioLuz(){
 		if(c11.SC.getModo() == 1) {
 			c11.SC.setModo(2);
 			conexionExt.postDatos(2, 1);
@@ -92,7 +92,7 @@ public class GestionCruce {
 		rojo2=0;
 	}
 
-	public void LuzGiro(int pos){
+	public void luzGiro(int pos){
 		switch(pos){
 		case 1:
 			c11.SG.setModo(2);
@@ -105,7 +105,7 @@ public class GestionCruce {
 			break;
 		}
 	}
-	public void LuzGiroOff(int pos){
+	public void luzGiroOff(int pos){
 		switch(pos){
 		case 1:
 			c11.SG.setModo(4);
@@ -119,7 +119,7 @@ public class GestionCruce {
 		}
 	}
 
-	public void Iniciar(){
+	public void iniciar(){
 		if((c21.totalCoches()+c22.totalCoches())>(c11.totalCoches()+c11.totalCoches())) {
 			c11.SC.setModo(4);
 			conexionExt.postDatos(4, 1);
@@ -134,37 +134,37 @@ public class GestionCruce {
 			c21.SC.setModo(4);
 			c22.SC.setModo(4);
 		}
-		Algoritmo();
+		algoritmo();
 	}
-	public void Algoritmo() {
+	public void algoritmo() {
 		Timer timer = new Timer();
 		TimerTask task = new TimerTask() {
 			@Override
 			public void run() {
-				Calles();
+				calles();
 				if(c21.SC.getModo() == 2 && c22.SC.getModo() == 2 && c11.SC.getModo()==2 && c12.SC.getModo() == 2)
-					Iniciar();
+					iniciar();
 				else {
 					switch (c11.SC.getModo()) {
 						case 1:
 							if (rojo2 > 120)
-								CambioLuz();
+								cambioLuz();
 							else if ((c21.totalCoches() + c22.totalCoches()) > 4 * (c21.numVias() + c22.numVias()) || c21.totalCoches() > 4 * (c21.numVias()) || c22.totalCoches() > 4 * (c22.numVias()))
-								CambioLuz();
+								cambioLuz();
 							if (c21.Via(0) > 4 || c22.Via(0) > 4 || (c22.Via(0) + c21.Via(0)) > 8)
-								LuzGiro(2);
+								luzGiro(2);
 							else if (c21.Via(0) < 4 || c22.Via(0) < 4 || (c22.Via(0) + c21.Via(0)) < 8)
-								LuzGiroOff(2);
+								luzGiroOff(2);
 							break;
 						case 4:
 							if (rojo1 > 120)
-								CambioLuz();
+								cambioLuz();
 							else if ((c11.totalCoches() + c22.totalCoches()) > 4 * (c11.numVias() + c12.numVias()) || c11.totalCoches() > 4 * (c11.numVias()) || c12.totalCoches() > 4 * (c12.numVias()))
-								CambioLuz();
+								cambioLuz();
 							if (c11.Via(0) > 4 || c12.Via(0) > 4 || (c12.Via(0) + c11.Via(0)) > 8)
-								LuzGiro(1);
+								luzGiro(1);
 							else if (c11.Via(0) < 4 || c12.Via(0) < 4 || (c12.Via(0) + c11.Via(0)) < 8)
-								LuzGiroOff(1);
+								luzGiroOff(1);
 							break;
 					}
 				}
@@ -174,7 +174,7 @@ public class GestionCruce {
 		timer.schedule(task,0,1000);
 	}
 
-	public void Calles() {
+	public void calles() {
 		ArrayList<Integer> street = new ArrayList<Integer>();
 		Auxiliar aux = new Auxiliar ();
 		try {
@@ -188,7 +188,7 @@ public class GestionCruce {
 		c22.setVias(aux.generadorDatos(street));
 	}
 
-	public void Timer() {
+	public void timer() {
 		Timer timer = new Timer();
 		TimerTask task = new TimerTask() {
 			@Override
