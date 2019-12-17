@@ -35,19 +35,22 @@ public class ConexionExterna {
 	 */
 	public ArrayList<Integer> getDatos () throws IOException {
 		ArrayList<Integer> resul = new ArrayList<Integer>();
-		HttpURLConnection con = (HttpURLConnection) this.url.openConnection();
-		con.setRequestMethod("GET");
-		con.setRequestProperty("Content-Type", "application/json");
-		
-		BufferedReader in = new BufferedReader( 
-			new InputStreamReader(con.getInputStream())); 
-		String inputLine; 
-		StringBuffer content = new StringBuffer(); 
-		while ((inputLine = in.readLine()) != null) { 
-			content.append(inputLine); 
-		} 
-		in.close(); 
-		System.out.println(content);
+//		HttpURLConnection con = (HttpURLConnection) this.url.openConnection();
+//		con.setRequestMethod("GET");
+//		con.setRequestProperty("Content-Type", "application/json");
+//		
+//		BufferedReader in = new BufferedReader( 
+//			new InputStreamReader(con.getInputStream())); 
+//		String inputLine; 
+//		StringBuffer content = new StringBuffer(); 
+//		while ((inputLine = in.readLine()) != null) { 
+//			content.append(inputLine); 
+////			resul.add(inputLine);
+//		} 
+		//LINEA SIGUIENTE PARA PRUEBAS
+		resul= Auxiliar.generadorDatosTesting();
+//		in.close(); 
+		System.out.println("hola: "+resul);
 		return resul;
 	}
 	/*
@@ -58,6 +61,8 @@ public class ConexionExterna {
 		final String POST_PARAMS = "{\n" + "\"modo\": "+modo+",\r\n" +
 		        "    \"posicion\": "+posicion+ "\n}";
 		try {
+			System.out.println("url: " +  this.url);
+			this.url = new URL ("https://my-json-server.typicode.com/typicode/demo/posts");
 			HttpURLConnection con = (HttpURLConnection) this.url.openConnection();
 			con.setRequestMethod("POST");
 			con.setRequestProperty("Content-Type", "application/json");

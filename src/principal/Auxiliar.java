@@ -13,4 +13,13 @@ public class Auxiliar {
 		return resul;
 		
 	}
+	public static ArrayList<Integer> generadorDatosTesting(){
+		ArrayList<Integer> resul = new ArrayList<Integer>();
+		for(int i = 0; i< 5; i++) {
+			resul.add((int)  Math.floor(Math.random()*8));
+		}
+		System.out.println(resul);
+		return resul;
+		
+	}
 }

@@ -14,7 +14,7 @@ public class Main {
 //		GestionCruce gc = new GestionCruce ();
 //		gc.CambioLuz();
 //		conexionExt.postDatos(6);
-//		conexionExt.getDatos();
+		conexionExt.getDatos();
 		Auxiliar aux = new Auxiliar();
 		ArrayList<Integer> arr = new ArrayList<Integer>();
 		arr.add(2);
