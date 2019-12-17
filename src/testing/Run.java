@@ -16,7 +16,6 @@ public class Run {
 		
 //		ConexionExterna ce = new ConexionExterna();
 //		ce.abrirConexion();
-		System.out.println("abriendo conexion");
 		GestionCruce gc = new GestionCruce ();
 		gc.iniciar();
 

@@ -50,7 +50,6 @@ public class ConexionExterna {
 		//LINEA SIGUIENTE PARA PRUEBAS
 		resul= Auxiliar.generadorDatosTesting();
 //		in.close(); 
-		System.out.println("hola: "+resul);
 		return resul;
 	}
 	/*
@@ -83,7 +82,7 @@ public class ConexionExterna {
 					response.append(inputLine);
 				} in .close();
 				// print result
-				System.out.println(response.toString());
+				System.out.println("json que envia: "+response.toString());
 			} else {
 				System.out.println("POST NOT WORKED");
 			}	

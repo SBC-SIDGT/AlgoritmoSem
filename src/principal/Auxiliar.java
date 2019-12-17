@@ -9,7 +9,7 @@ public class Auxiliar {
 		for(int i = 0; i< a.size(); i++) {
 			resul.add((int)  Math.floor(Math.random()*8));
 		}
-		System.out.println(resul);
+		System.out.println("Array random: "+resul);
 		return resul;
 		
 	}
