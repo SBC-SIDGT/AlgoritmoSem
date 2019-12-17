@@ -9,7 +9,6 @@ public class Calle {
     protected SemG SG;
 
     public Calle(int pos) {
-        this.vias = vias;
         Pos = pos;
         SC= new SemC(2);
         SG= new SemG(2);
@@ -46,7 +45,7 @@ public class Calle {
     public void add(int x){
         vias.add(x);
     }
-    public int Via(int x){
+    public int via(int x){
         return vias.get(x);
     }
 }

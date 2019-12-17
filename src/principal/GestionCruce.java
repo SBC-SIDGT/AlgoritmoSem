@@ -151,9 +151,9 @@ public class GestionCruce {
 								cambioLuz();
 							else if ((c21.totalCoches() + c22.totalCoches()) > 4 * (c21.numVias() + c22.numVias()) || c21.totalCoches() > 4 * (c21.numVias()) || c22.totalCoches() > 4 * (c22.numVias()))
 								cambioLuz();
-							if (c21.Via(0) > 4 || c22.Via(0) > 4 || (c22.Via(0) + c21.Via(0)) > 8)
+							if (c21.via(0) > 4 || c22.via(0) > 4 || (c22.via(0) + c21.via(0)) > 8)
 								luzGiro(2);
-							else if (c21.Via(0) < 4 || c22.Via(0) < 4 || (c22.Via(0) + c21.Via(0)) < 8)
+							else if (c21.via(0) < 4 || c22.via(0) < 4 || (c22.via(0) + c21.via(0)) < 8)
 								luzGiroOff(2);
 							break;
 						case 4:
@@ -161,9 +161,9 @@ public class GestionCruce {
 								cambioLuz();
 							else if ((c11.totalCoches() + c22.totalCoches()) > 4 * (c11.numVias() + c12.numVias()) || c11.totalCoches() > 4 * (c11.numVias()) || c12.totalCoches() > 4 * (c12.numVias()))
 								cambioLuz();
-							if (c11.Via(0) > 4 || c12.Via(0) > 4 || (c12.Via(0) + c11.Via(0)) > 8)
+							if (c11.via(0) > 4 || c12.via(0) > 4 || (c12.via(0) + c11.via(0)) > 8)
 								luzGiro(1);
-							else if (c11.Via(0) < 4 || c12.Via(0) < 4 || (c12.Via(0) + c11.Via(0)) < 8)
+							else if (c11.via(0) < 4 || c12.via(0) < 4 || (c12.via(0) + c11.via(0)) < 8)
 								luzGiroOff(1);
 							break;
 					}
