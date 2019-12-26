@@ -6,6 +6,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class GestionCruce {
+	private boolean in =false;
 	private Calle c11;
 	private Calle c12;
 	private Calle c21;
@@ -65,6 +66,7 @@ public class GestionCruce {
 	}
 
 	public void cambioLuz(){
+		in=true;
 		if(c11.SC.getModo() == 1) {
 			c11.SC.setModo(2);
 			conexionExt.postDatos(2, 1);
@@ -88,6 +90,7 @@ public class GestionCruce {
 			conexionExt.postDatos(1, 1);
 			c12.SC.setModo(1);
 		}
+		notifyAll();
 		rojo1=0;
 		rojo2=0;
 	}
@@ -141,6 +144,12 @@ public class GestionCruce {
 		TimerTask task = new TimerTask() {
 			@Override
 			public void run() {
+				if(in){
+					try{
+						wait();
+					}catch (InterruptedException e)
+					in = false
+				}
 				calles();
 				if(c21.SC.getModo() == 2 && c22.SC.getModo() == 2 && c11.SC.getModo()==2 && c12.SC.getModo() == 2)
 					iniciar();
@@ -183,6 +192,7 @@ public class GestionCruce {
 			e.printStackTrace();
 		}
 		c11.setVias(street);
+		
 		c12.setVias(aux.generadorDatos(street));
 		c21.setVias(aux.generadorDatos(street));
 		c22.setVias(aux.generadorDatos(street));
