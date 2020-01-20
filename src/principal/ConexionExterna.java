@@ -5,37 +5,20 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 import java.util.ArrayList;
 
 public class ConexionExterna {
 	
-	private URL url;
 	
-	public URL getUrl() {
-		return url;
-	}
-	public void setUrl() {
-		try {
-			this.url = new URL ("http://138.100.155.28/data");
-		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			System.out.println("URL no valida");
-			e.printStackTrace();
-		}
-	}
-	
-	public void abrirConexion()throws IOException {
-		setUrl();
-	}
 	/*
 	 * Metodo que obtiene los datos de la API. Recibe JSON, pero devuelve un ArrayList de enteros
 	 */
 	public ArrayList<Integer> getDatos () throws IOException {
 		ArrayList<Integer> resul = new ArrayList<Integer>();
-		HttpURLConnection con = (HttpURLConnection) this.url.openConnection();
+		 URL url = new URL ("http://138.100.155.28/");
+		HttpURLConnection con = (HttpURLConnection) url.openConnection();
 		con.setRequestMethod("GET");
 		con.setRequestProperty("Content-Type", "application/json");
 		
@@ -45,7 +28,8 @@ public class ConexionExterna {
 		StringBuffer content = new StringBuffer(); 
 		while ((inputLine = in.readLine()) != null) { 
 			content.append(inputLine); 
-			resul.add(Integer.parseInt(inputLine));
+			String[] splits =  inputLine.replace("[","").replace("]","").replace(" ","").split(",");
+			 resul =Auxiliar.obtenerIntegerArray(splits);
 		} 
 		//LINEA SIGUIENTE PARA PRUEBAS
 //		resul= Auxiliar.generadorDatosTesting();
@@ -60,7 +44,10 @@ public class ConexionExterna {
 		final String POST_PARAMS = "{\n" + "\"mode\": "+modo+",\r\n" +
 		        "    \"position\": "+posicion+ "\n}";
 		try {
-			HttpURLConnection con = (HttpURLConnection) this.url.openConnection();
+			URL url = new URL ("http://138.100.155.28/data");
+			HttpURLConnection con = (HttpURLConnection) url.openConnection();
+			con.setConnectTimeout(10);
+			con.setReadTimeout(10);
 			con.setRequestMethod("POST");
 			con.setRequestProperty("Content-Type", "application/json");
 			con.setDoOutput(true);

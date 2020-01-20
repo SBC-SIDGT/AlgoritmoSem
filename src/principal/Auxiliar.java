@@ -22,4 +22,18 @@ public class Auxiliar {
 		return resul;
 		
 	}
+	
+	public static ArrayList<Integer> obtenerIntegerArray(String[] stringArray) {
+        ArrayList<Integer> resul = new ArrayList<Integer>();
+        for(String stringValue : stringArray) {
+            try {
+            	System.out.println("valuee: "+ stringValue);
+                //Convierte String a Integer y lo guarda en un Integer arrayList.              result.add(Integer.parseInt(stringValue));
+            } catch(NumberFormatException nfe) {
+               System.out.println("No pudo parsear " + nfe);
+                
+            } 
+        }       
+        return resul;
+    }
 }
