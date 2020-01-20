@@ -184,6 +184,7 @@ public class GestionCruce {
 	}
 
 	public void calles() {
+		conexionExt.abrirConexion();
 		ArrayList<Integer> street = new ArrayList<Integer>();
 		Auxiliar aux = new Auxiliar ();
 		try {
@@ -192,7 +193,6 @@ public class GestionCruce {
 			e.printStackTrace();
 		}
 		c11.setVias(street);
-		
 		c12.setVias(aux.generadorDatos(street));
 		c21.setVias(aux.generadorDatos(street));
 		c22.setVias(aux.generadorDatos(street));
