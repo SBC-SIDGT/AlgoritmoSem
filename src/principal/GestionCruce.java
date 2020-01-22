@@ -153,7 +153,7 @@ public class GestionCruce {
 				calles();
 				if(c21.SC.getModo() == 2 && c22.SC.getModo() == 2 && c11.SC.getModo()==2 && c12.SC.getModo() == 2)
 					iniciar();
-				else {
+				else if(rojo1>60) {
 					switch (c11.SC.getModo()) {
 						case 1:
 							if (rojo2 > 120)

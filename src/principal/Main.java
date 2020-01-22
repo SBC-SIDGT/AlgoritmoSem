@@ -22,6 +22,7 @@ public class Main {
 		arr.add(3);
 		arr.add(3);
 		arr.add(3);
-		aux.generadorDatos(arr);
+		while(true){
+		}
 	}
 }
