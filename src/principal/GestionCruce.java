@@ -188,12 +188,19 @@ public class GestionCruce {
 		ArrayList<Integer> street = new ArrayList<Integer>();
 		Auxiliar aux = new Auxiliar ();
 		try {
-			street = conexionExt.getDatos();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		c11.setVias(street);
-		c12.setVias(aux.generadorDatos(street));
+            street = conexionExt.getDatos();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        c11.setVias(street);
+        try {
+            street = conexionExt.getDatos();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+		c12.setVias(street);
 		c21.setVias(aux.generadorDatos(street));
 		c22.setVias(aux.generadorDatos(street));
 	}
