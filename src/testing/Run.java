@@ -14,8 +14,6 @@ public class Run {
 		arr.add(5);
 		arr.add(7);
 		
-//		ConexionExterna ce = new ConexionExterna();
-//		ce.abrirConexion();
 		GestionCruce gc = new GestionCruce ();
 		gc.iniciar();
 
